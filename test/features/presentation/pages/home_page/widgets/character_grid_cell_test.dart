@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:marvel/features/presentation/pages/home_page/widgets/character_list_tile.dart';
+import 'package:marvel/features/presentation/pages/home_page/widgets/character_grid_cell.dart';
 import 'package:mockito/mockito.dart';
 import 'package:network_image_mock/network_image_mock.dart';
 
@@ -21,7 +21,7 @@ main() {
 
   final mockOnTapHandler = MockOnTapHandler();
 
-  group('CharacterListTile group =>', () {
+  group('CharacterGridCell group =>', () {
     tearDown(() {
       reset(mockOnTapHandler);
     });
@@ -29,12 +29,12 @@ main() {
     final character = randomCharacters[0];
 
     testWidgets(
-        'should render a [CharacterListTile] widget and when tap call [onTap]',
+        'should render a [CharacterGridCell] widget and when tap call [onTap]',
         (tester) async {
       mockNetworkImagesFor(() async {
         await tester.pumpWidget(
           createWidgetForTesting(
-            CharacterListTile(
+            CharacterGridCell(
               character: randomCharacters[0],
               onTap: mockOnTapHandler,
             ),
@@ -43,7 +43,7 @@ main() {
 
         await tester.pump();
 
-        await tester.tap(find.byType(CharacterListTile));
+        await tester.tap(find.byType(CharacterGridCell));
 
         expect(find.text(character.name), findsOneWidget);
 

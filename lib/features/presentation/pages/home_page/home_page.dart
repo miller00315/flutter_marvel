@@ -37,7 +37,7 @@ class HomePage extends StatelessWidget {
             }
           },
           child: HomePageBody(
-            handleCharacterListTileTap: (character) =>
+            handleCharacterGridCellTap: (character) =>
                 goToDetailsPage(context, character),
           ),
         ),

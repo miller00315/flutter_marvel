@@ -9,18 +9,18 @@ import 'package:marvel/config/app_spacing.dart';
 import 'package:marvel/core/status/status.dart';
 import 'package:marvel/features/domain/entities/character.dart';
 import 'package:marvel/features/presentation/bloc/characters_bloc/characters_bloc.dart';
-import 'package:marvel/features/presentation/pages/home_page/widgets/character_list_tile.dart';
+import 'package:marvel/features/presentation/pages/home_page/widgets/character_grid_cell.dart';
 import 'package:marvel/features/presentation/widgets/bottom_loading_widget.dart';
 import 'package:marvel/features/presentation/widgets/empty_list_widget.dart';
 import 'package:marvel/features/presentation/widgets/failure_widget.dart';
 import 'package:marvel/features/presentation/widgets/loading_widget.dart';
 
 class HomePageBody extends StatefulWidget {
-  final void Function(Character) handleCharacterListTileTap;
+  final void Function(Character) handleCharacterGridCellTap;
 
   const HomePageBody({
     Key? key,
-    required this.handleCharacterListTileTap,
+    required this.handleCharacterGridCellTap,
   }) : super(key: key);
 
   @override
@@ -161,10 +161,10 @@ class _HomePageBodyState extends State<HomePageBody> {
                         duration: const Duration(milliseconds: 375),
                         columnCount: 2,
                         child: ScaleAnimation(
-                          child: CharacterListTile(
+                          child: CharacterGridCell(
                             character: character,
                             onTap: () =>
-                                widget.handleCharacterListTileTap(character),
+                                widget.handleCharacterGridCellTap(character),
                           ),
                         ),
                       );

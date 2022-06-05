@@ -7,7 +7,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:marvel/core/status/status.dart';
 import 'package:marvel/features/domain/entities/character.dart';
 import 'package:marvel/features/presentation/bloc/characters_bloc/characters_bloc.dart';
-import 'package:marvel/features/presentation/pages/home_page/widgets/character_list_tile.dart';
+import 'package:marvel/features/presentation/pages/home_page/widgets/character_grid_cell.dart';
 import 'package:marvel/features/presentation/pages/home_page/widgets/home_page_body.dart';
 import 'package:marvel/features/presentation/widgets/bottom_loading_widget.dart';
 import 'package:marvel/features/presentation/widgets/empty_list_widget.dart';
@@ -67,7 +67,7 @@ main() {
         await tester.pumpWidget(
           createWidgetForTesting(
             HomePageBody(
-              handleCharacterListTileTap: mockOnTapHandler,
+              handleCharacterGridCellTap: mockOnTapHandler,
             ),
           ),
         );
@@ -76,7 +76,7 @@ main() {
 
         expect(find.byType(LoadingWidget), findsOneWidget);
 
-        expect(find.byType(CharacterListTile), findsNothing);
+        expect(find.byType(CharacterGridCell), findsNothing);
 
         expect(find.byType(FailureWidget), findsNothing);
 
@@ -101,7 +101,7 @@ main() {
         await tester.pumpWidget(
           createWidgetForTesting(
             HomePageBody(
-              handleCharacterListTileTap: mockOnTapHandler,
+              handleCharacterGridCellTap: mockOnTapHandler,
             ),
           ),
         );
@@ -110,7 +110,7 @@ main() {
 
         expect(find.byType(LoadingWidget), findsNothing);
 
-        expect(find.byType(CharacterListTile), findsNothing);
+        expect(find.byType(CharacterGridCell), findsNothing);
 
         expect(find.byType(FailureWidget), findsOneWidget);
 
@@ -135,7 +135,7 @@ main() {
         await tester.pumpWidget(
           createWidgetForTesting(
             HomePageBody(
-              handleCharacterListTileTap: mockOnTapHandler,
+              handleCharacterGridCellTap: mockOnTapHandler,
             ),
           ),
         );
@@ -144,7 +144,7 @@ main() {
 
         expect(find.byType(LoadingWidget), findsNothing);
 
-        expect(find.byType(CharacterListTile), findsNothing);
+        expect(find.byType(CharacterGridCell), findsNothing);
 
         expect(find.byType(FailureWidget), findsNothing);
 
@@ -171,7 +171,7 @@ main() {
         await tester.pumpWidget(
           createWidgetForTesting(
             HomePageBody(
-              handleCharacterListTileTap: mockOnTapHandler,
+              handleCharacterGridCellTap: mockOnTapHandler,
             ),
           ),
         );
@@ -181,7 +181,7 @@ main() {
         expect(find.byType(LoadingWidget), findsNothing);
 
         expect(
-          find.byType(CharacterListTile),
+          find.byType(CharacterGridCell),
           findsNWidgets(randomCharacters.length),
         );
 
@@ -215,7 +215,7 @@ main() {
         await tester.pumpWidget(
           createWidgetForTesting(
             HomePageBody(
-              handleCharacterListTileTap: mockOnTapHandler,
+              handleCharacterGridCellTap: mockOnTapHandler,
             ),
           ),
         );
@@ -225,7 +225,7 @@ main() {
         expect(find.byType(LoadingWidget), findsNothing);
 
         expect(
-          find.byType(CharacterListTile),
+          find.byType(CharacterGridCell),
           findsNWidgets(randomCharacters.length),
         );
 

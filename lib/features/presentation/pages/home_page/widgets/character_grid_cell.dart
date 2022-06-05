@@ -6,11 +6,11 @@ import 'package:marvel/config/app_padding.dart';
 import 'package:marvel/theme/app_colors.dart';
 import 'package:marvel/features/domain/entities/character.dart';
 
-class CharacterListTile extends StatelessWidget {
+class CharacterGridCell extends StatelessWidget {
   final Character character;
   final VoidCallback onTap;
 
-  const CharacterListTile(
+  const CharacterGridCell(
       {Key? key, required this.character, required this.onTap})
       : super(key: key);
 
