@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:marvel/config/app_images.dart';
+import 'package:marvel/config/app_texts.dart';
+import 'package:marvel/config/app_spacing.dart';
 
 class FailureWidget extends StatelessWidget {
   final void Function() handleTryAgainPressed;
@@ -14,7 +17,7 @@ class FailureWidget extends StatelessWidget {
       children: [
         Positioned.fill(
           child: Image.asset(
-            'assets/images/background1.png',
+            AppImages.darkBackgroundImage,
             fit: BoxFit.fill,
           ),
         ),
@@ -23,15 +26,15 @@ class FailureWidget extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               Image.asset(
-                'assets/images/logo.png',
+                AppImages.logo,
                 width: 100,
               ),
               const SizedBox(
-                height: 8,
+                height: AppSpacing.extraSmall,
               ),
-              const Text('Erro ao tentar obter os dados, tente novamente'),
+              const Text(AppTexts.fetchError),
               const SizedBox(
-                height: 8,
+                height: AppSpacing.extraSmall,
               ),
               IconButton(
                 onPressed: handleTryAgainPressed,

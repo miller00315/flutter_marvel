@@ -14,8 +14,7 @@ class CharactersBloc extends Bloc<CharactersEvent, CharactersState> {
   CharactersBloc(this.fetchCharactersUsecase)
       : super(CharactersState.initial()) {
     on<CharactersEvent>((event, emit) async {
-      if (event
-          is FetchCharactersEvent /*  && state.fetchStatus is! InProgress */) {
+      if (event is FetchCharactersEvent) {
         emit(
           state.copyWith(
             fetchStatus: InProgress(),

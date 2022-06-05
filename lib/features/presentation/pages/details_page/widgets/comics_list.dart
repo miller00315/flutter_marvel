@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:marvel/config/app_border_radius.dart';
 import 'package:marvel/config/app_font_size.dart';
+import 'package:marvel/config/app_padding.dart';
+import 'package:marvel/config/app_texts.dart';
+import 'package:marvel/config/app_spacing.dart';
+import 'package:marvel/theme/app_colors.dart';
 import 'package:marvel/features/domain/entities/comic.dart';
 
 class ComicsList extends StatelessWidget {
@@ -13,23 +18,23 @@ class ComicsList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16),
+      padding: AppPadding.large,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const Text(
-            'Comics',
-            style: TextStyle(color: Colors.grey),
+            AppTexts.comics,
+            style: TextStyle(color: AppColors.grey),
           ),
           const SizedBox(
-            height: 12,
+            height: AppSpacing.small,
           ),
           Container(
-            decoration: BoxDecoration(
-              color: Colors.black,
-              borderRadius: BorderRadius.circular(12),
+            decoration: const BoxDecoration(
+              color: AppColors.black,
+              borderRadius: BorderRadius.all(AppBorderRadius.small),
             ),
-            padding: const EdgeInsets.symmetric(horizontal: 8),
+            padding: AppPadding.medium,
             child: ListView.separated(
               physics: const NeverScrollableScrollPhysics(),
               shrinkWrap: true,
@@ -38,7 +43,6 @@ class ComicsList extends StatelessWidget {
                   title: Text(
                     comics[index].name,
                     style: const TextStyle(
-                      letterSpacing: 0.32,
                       fontSize: AppFontSize.small,
                     ),
                   ),
@@ -47,7 +51,7 @@ class ComicsList extends StatelessWidget {
               separatorBuilder: (context, index) => Container(
                 height: 1,
                 width: double.maxFinite,
-                color: Colors.white,
+                color: AppColors.white,
               ),
               itemCount: comics.length,
             ),

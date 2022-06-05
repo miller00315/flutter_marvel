@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:marvel/config/app_images.dart';
+import 'package:marvel/config/app_texts.dart';
 import 'package:marvel/config/app_spacing.dart';
-import 'package:marvel/theme/app_colors.dart';
 
-class LoadingWidget extends StatelessWidget {
-  const LoadingWidget({Key? key}) : super(key: key);
+class EmptyListWidget extends StatelessWidget {
+  final void Function() handleTryAgainPressed;
+
+  const EmptyListWidget({
+    Key? key,
+    required this.handleTryAgainPressed,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -27,8 +32,13 @@ class LoadingWidget extends StatelessWidget {
               const SizedBox(
                 height: AppSpacing.extraSmall,
               ),
-              const CircularProgressIndicator(
-                color: AppColors.white,
+              const Text(AppTexts.emptyList),
+              const SizedBox(
+                height: AppSpacing.extraSmall,
+              ),
+              IconButton(
+                onPressed: handleTryAgainPressed,
+                icon: const Icon(Icons.error),
               ),
             ],
           ),

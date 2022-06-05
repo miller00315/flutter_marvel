@@ -1,4 +1,3 @@
-import 'package:equatable/equatable.dart';
 import 'package:marvel/features/data/models/comic_model.dart';
 import 'package:marvel/features/data/models/thumbnail_model.dart';
 import 'package:marvel/features/domain/entities/character.dart';
@@ -13,8 +12,6 @@ class CharacterModel extends Character {
   });
 
   factory CharacterModel.fromJson(Map<String, dynamic> json) {
-   /*  print(json['comics']['items']);
- */
     final comics = (json['comics']['items'] as List);
 
     return CharacterModel(

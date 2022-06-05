@@ -28,7 +28,9 @@ main() {
 
     final character = randomCharacters[0];
 
-    testWidgets('should build a CharacterListTile', (tester) async {
+    testWidgets(
+        'should render a [CharacterListTile] widget and when tap call [onTap]',
+        (tester) async {
       mockNetworkImagesFor(() async {
         await tester.pumpWidget(
           createWidgetForTesting(

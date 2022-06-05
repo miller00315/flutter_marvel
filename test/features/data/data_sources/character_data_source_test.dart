@@ -19,12 +19,7 @@ main() {
 
   String? testUri;
 
-  dotenv.testLoad(fileInput: '''
-    API_PUBLIC_KEY=1234
-    API_PRIVATE_KEY=4567
-    AUTHORITY=test.com
-    CHARACTERS_PATH=/v1/public/characters
-  ''');
+  dotenv.testLoad(fileInput: env);
 
   final file = File('test/test_resources/jsons/random_character_list.json')
       .readAsStringSync();

@@ -1,6 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:marvel/config/app_border_radius.dart';
 import 'package:marvel/config/app_font_size.dart';
+import 'package:marvel/config/app_padding.dart';
+import 'package:marvel/theme/app_colors.dart';
 import 'package:marvel/features/domain/entities/character.dart';
 
 class CharacterListTile extends StatelessWidget {
@@ -18,9 +21,9 @@ class CharacterListTile extends StatelessWidget {
       child: ClipRRect(
         key: Key(character.id.toString()),
         borderRadius: const BorderRadius.only(
-          topLeft: Radius.circular(20),
-          topRight: Radius.circular(20),
-          bottomRight: Radius.circular(20),
+          topLeft: AppBorderRadius.medium,
+          topRight: AppBorderRadius.medium,
+          bottomRight: AppBorderRadius.medium,
         ),
         child: Column(
           children: [
@@ -40,15 +43,15 @@ class CharacterListTile extends StatelessWidget {
               ),
             ),
             Container(
-              color: Colors.red,
+              color: AppColors.red,
               width: double.maxFinite,
               height: 2,
             ),
             Expanded(
               child: Container(
-                color: Colors.black,
                 width: double.maxFinite,
-                padding: const EdgeInsets.all(5),
+                color: AppColors.black,
+                padding: AppPadding.small,
                 child: Column(
                   children: [
                     Align(
@@ -56,8 +59,6 @@ class CharacterListTile extends StatelessWidget {
                       child: Text(
                         character.name,
                         style: const TextStyle(
-                          color: Colors.white,
-                          letterSpacing: 0.32,
                           fontSize: AppFontSize.big,
                         ),
                       ),

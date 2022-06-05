@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:marvel/config/app_font_size.dart';
+import 'package:marvel/config/app_letter_spacing.dart';
 
 final ThemeData marvelTheme = _buildMarvelTheme();
 
@@ -31,6 +32,10 @@ TextTheme _buildTextTheme(TextTheme base) {
         bodyText1: base.bodyText1!.copyWith(
           fontWeight: FontWeight.w500,
           fontSize: AppFontSize.medium,
+          letterSpacing: AppLetterSpacing.medium,
+        ),
+        bodyText2: base.bodyText2!.copyWith(
+          letterSpacing: AppLetterSpacing.medium,
         ),
       )
       .apply(

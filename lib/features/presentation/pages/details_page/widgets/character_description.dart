@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:marvel/config/app_font_size.dart';
+import 'package:marvel/config/app_padding.dart';
+import 'package:marvel/config/app_texts.dart';
+import 'package:marvel/config/app_spacing.dart';
+import 'package:marvel/theme/app_colors.dart';
 
 class CharacterDescription extends StatelessWidget {
   final String description;
@@ -10,21 +14,23 @@ class CharacterDescription extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16),
+      padding: AppPadding.large,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const Text(
-            'Description',
+            AppTexts.description,
             style: TextStyle(
-              color: Colors.grey,
+              color: AppColors.grey,
               fontSize: AppFontSize.medium,
             ),
           ),
           const SizedBox(
-            height: 12,
+            height: AppSpacing.small,
           ),
-          Text(description),
+          Text(
+            description,
+          ),
         ],
       ),
     );

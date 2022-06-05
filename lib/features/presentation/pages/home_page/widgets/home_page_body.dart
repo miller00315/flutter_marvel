@@ -1,10 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
+import 'package:marvel/config/app_font_size.dart';
+import 'package:marvel/config/app_padding.dart';
+import 'package:marvel/config/app_images.dart';
+import 'package:marvel/config/app_texts.dart';
+import 'package:marvel/config/app_spacing.dart';
 import 'package:marvel/core/status/status.dart';
 import 'package:marvel/features/domain/entities/character.dart';
 import 'package:marvel/features/presentation/bloc/characters_bloc/characters_bloc.dart';
 import 'package:marvel/features/presentation/pages/home_page/widgets/character_list_tile.dart';
+import 'package:marvel/features/presentation/widgets/bottom_loading_widget.dart';
+import 'package:marvel/features/presentation/widgets/empty_list_widget.dart';
 import 'package:marvel/features/presentation/widgets/failure_widget.dart';
 import 'package:marvel/features/presentation/widgets/loading_widget.dart';
 
@@ -66,52 +73,43 @@ class _HomePageBodyState extends State<HomePageBody> {
           }
 
           if (state.fetchStatus is Error) {
-            return Center(
-              child: FailureWidget(handleTryAgainPressed: _requestCharacters),
-            );
+            return FailureWidget(handleTryAgainPressed: _requestCharacters);
           }
 
-          return Container();
+          if (state.fetchStatus is Done) {
+            return EmptyListWidget(handleTryAgainPressed: _requestCharacters);
+          }
         }
 
-        return Stack(
-          children: [
-            Positioned.fill(
-              child: Image.asset(
-                'assets/images/background2.png',
-                fit: BoxFit.fill,
-              ),
+        return Container(
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage(AppImages.lightBackgroundImage),
+              fit: BoxFit.cover,
             ),
-            SingleChildScrollView(
-              controller: _controller,
-              child: Column(
-                children: [
-                  SizedBox(
-                    height: MediaQuery.of(context).size.height / 2 - 100,
+          ),
+          child: SingleChildScrollView(
+            controller: _controller,
+            child: Column(
+              children: [
+                Container(
+                  width: double.maxFinite,
+                  decoration: const BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage(AppImages.darkBackgroundImage),
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                  height: MediaQuery.of(context).size.height / 2 - 100,
+                  child: SafeArea(
                     child: Stack(
                       children: [
-                        Positioned.fill(
-                          child: Image.asset(
-                            'assets/images/background1.png',
-                            fit: BoxFit.fill,
-                          ),
-                        ),
                         Positioned(
-                          child: Container(
-                            width: MediaQuery.of(context).size.width,
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 20,
-                              vertical: 50,
-                            ),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: <Widget>[
-                                Image.asset(
-                                  'assets/images/logo.png',
-                                  width: 100,
-                                ),
-                              ],
-                            ),
+                          top: AppSpacing.medium,
+                          left: AppSpacing.medium,
+                          child: Image.asset(
+                            AppImages.logo,
+                            width: 100,
                           ),
                         ),
                         Center(
@@ -119,24 +117,19 @@ class _HomePageBodyState extends State<HomePageBody> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: const [
                               SizedBox(
-                                height: 50,
+                                height: AppSpacing.ultraLarge,
                               ),
                               Text(
-                                'MARVEL CHARACTERS',
+                                AppTexts.homePageTitle,
                                 style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 30,
-                                  letterSpacing: 0.5,
+                                  fontSize: AppFontSize.large,
                                 ),
                               ),
                               SizedBox(
-                                height: 20,
+                                height: AppSpacing.large,
                               ),
                               Text(
-                                'Get hooked on a hearty helping of heroes and villains\nfrom the humble House of Ideas!',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                ),
+                                AppTexts.homePageSubtitle,
                                 textAlign: TextAlign.center,
                               ),
                             ],
@@ -145,47 +138,44 @@ class _HomePageBodyState extends State<HomePageBody> {
                       ],
                     ),
                   ),
-                  AnimationLimiter(
-                    child: GridView.builder(
-                      physics: const NeverScrollableScrollPhysics(),
-                      padding: const EdgeInsets.all(16),
-                      shrinkWrap: true,
-                      addAutomaticKeepAlives: true,
-                      itemCount: state.characters.length,
-                      gridDelegate:
-                          const SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 2,
-                        crossAxisSpacing: 30,
-                        mainAxisSpacing: 30,
-                        childAspectRatio: 3 / 4,
-                      ),
-                      itemBuilder: (context, index) {
-                        final character = state.characters[index];
+                ),
+                AnimationLimiter(
+                  child: GridView.builder(
+                    physics: const NeverScrollableScrollPhysics(),
+                    padding: AppPadding.large,
+                    shrinkWrap: true,
+                    addAutomaticKeepAlives: true,
+                    itemCount: state.characters.length,
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      crossAxisSpacing: AppSpacing.extraLarge,
+                      mainAxisSpacing: AppSpacing.extraLarge,
+                      childAspectRatio: 3 / 4,
+                    ),
+                    itemBuilder: (context, index) {
+                      final character = state.characters[index];
 
-                        return AnimationConfiguration.staggeredGrid(
-                          position: index,
-                          duration: const Duration(milliseconds: 375),
-                          columnCount: 2,
-                          child: ScaleAnimation(
-                            child: CharacterListTile(
-                              character: character,
-                              onTap: () =>
-                                  widget.handleCharacterListTileTap(character),
-                            ),
+                      return AnimationConfiguration.staggeredGrid(
+                        position: index,
+                        duration: const Duration(milliseconds: 375),
+                        columnCount: 2,
+                        child: ScaleAnimation(
+                          child: CharacterListTile(
+                            character: character,
+                            onTap: () =>
+                                widget.handleCharacterListTileTap(character),
                           ),
-                        );
-                      },
-                    ),
+                        ),
+                      );
+                    },
                   ),
-                  if (state.fetchStatus is InProgress)
-                    const Padding(
-                      padding: EdgeInsets.all(8.0),
-                      child: CircularProgressIndicator(),
-                    ),
-                ],
-              ),
+                ),
+                if (state.fetchStatus is InProgress)
+                  const BottomLoadingWidget(),
+              ],
             ),
-          ],
+          ),
         );
       },
     );

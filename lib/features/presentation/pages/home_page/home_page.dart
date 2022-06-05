@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:marvel/config/app_texts.dart';
 import 'package:marvel/features/domain/entities/character.dart';
 import 'package:marvel/features/presentation/bloc/characters_bloc/characters_bloc.dart';
 import 'package:marvel/features/presentation/pages/details_page/details_page.dart';
@@ -30,7 +31,7 @@ class HomePage extends StatelessWidget {
             if (state.fetchStatus is Error) {
               ScaffoldMessenger.of(context).showSnackBar(
                 const SnackBar(
-                  content: Text('Erro ao carregar dados'),
+                  content: Text(AppTexts.fetchError),
                 ),
               );
             }
