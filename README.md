@@ -20,6 +20,7 @@ Um app para Android e Ios em flutter que consome a api da Marvel.
 ## A ser finalizado
 
 - Testes de integração;
+- Finalizar e melhorar testes de widgets;
 - Sistema de login (utilizando firebase);
 - Migração para Flutter Modular;
 - Utilizar outras tecnologias como MobX, GetX;
