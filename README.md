@@ -15,7 +15,7 @@ Um app para Andorid e Ios em flutter que consome a api da Marvel.
 ## Como utilizar
 
 - flutter pub get
-
+- Utilize um emulador ou um dispositivo físico (mínimo sdk 21)
 - flutter run
 
 ## A ser finalizado
@@ -25,3 +25,10 @@ Um app para Andorid e Ios em flutter que consome a api da Marvel.
 - Migração para Flutter Modular;
 - Utilizar outras tecnologias como MobX, GetX;
 - Melhorar o design das telas de splash,
+
+## Outros exemplos
+
+
+<a href="mailto:miller00315@gmail.com?"><img src="https://img.shields.io/badge/gmail-%23DD0031.svg?&style=for-the-badge&logo=gmail&logoColor=white"/></a>
+
+<a href="https://github.com/miller00315"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"/></a>
