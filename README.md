@@ -1,12 +1,12 @@
 # Marvel
 
-Um app para Andorid e Ios em flutter que consome a api da Marvel.
+Um app para Android e Ios em flutter que consome a api da Marvel.
 
 ## Resumo
 
 - O app foi desenvolvido em flutter baseado nos princípios de SOLID, Clean Architecture, Clean code, TDD, NullSafety;
 
-- A arquitetura do projeto é agnóstica a tecnologia. Foi utilizado o BLoC, porém a migração par MobX, GetX, etc., não altera a arquitetura;utilizada.
+- A arquitetura do projeto é agnóstica a tecnologia. Foi utilizado o BLoC, porém a migração par MobX, GetX, entre outros, não altera a arquitetura utilizada.
 
 - O projeto baseia-se me injeção de dependências e abstrações;
 
@@ -28,6 +28,9 @@ Um app para Andorid e Ios em flutter que consome a api da Marvel.
 
 ## Outros exemplos
 
+<a href="https://github.com/miller00315/flutter_ddd_firebase">flutter_ddd_firebase</a>
+
+## Contato
 
 <a href="mailto:miller00315@gmail.com?"><img src="https://img.shields.io/badge/gmail-%23DD0031.svg?&style=for-the-badge&logo=gmail&logoColor=white"/></a>
 
