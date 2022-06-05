@@ -15,7 +15,6 @@ Um app para Android e Ios em flutter que consome a api da Marvel.
 ## Como utilizar
 
 - flutter pub get
-- Utilize um emulador ou um dispositivo físico (mínimo sdk 21)
 - flutter run
 
 ## A ser finalizado
