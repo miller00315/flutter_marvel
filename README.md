@@ -24,7 +24,8 @@ Um app para Android e Ios em flutter que consome a api da Marvel.
 - Sistema de login (utilizando firebase);
 - Migração para Flutter Modular;
 - Utilizar outras tecnologias como MobX, GetX;
-- Melhorar o design das telas de splash,
+- Melhorar o design das telas de splash;
+- Adicionar git hooks para realizar testes antes de finalizar o push.
 
 ## Outros exemplos
 
