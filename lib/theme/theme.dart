@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:marvel/config/app_font_size.dart';
 import 'package:marvel/config/app_letter_spacing.dart';
+import 'package:marvel/theme/app_colors.dart';
 
 final ThemeData marvelTheme = _buildMarvelTheme();
 
 ThemeData _buildMarvelTheme() {
-  final ThemeData base = ThemeData.light();
+  final ThemeData base = ThemeData.dark();
 
   return base.copyWith(
     colorScheme: base.colorScheme.copyWith(
-      primary: Colors.black,
+      primary: AppColors.black,
     ),
     textTheme: _buildTextTheme(base.textTheme),
   );
@@ -40,7 +41,7 @@ TextTheme _buildTextTheme(TextTheme base) {
       )
       .apply(
         fontFamily: 'Marvel',
-        displayColor: Colors.white,
-        bodyColor: Colors.white,
+        displayColor: AppColors.white,
+        bodyColor: AppColors.white,
       );
 }

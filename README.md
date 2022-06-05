@@ -1,16 +1,27 @@
-# marvel
+# Marvel
 
-A new Flutter project.
+Um app para Andorid e Ios em flutter que consome a api da Marvel.
 
-## Getting Started
+## Resumo
 
-This project is a starting point for a Flutter application.
+- O app foi desenvolvido em flutter baseado nos princípios de SOLID, Clean Architecture, Clean code, TDD, NullSafety;
 
-A few resources to get you started if this is your first Flutter project:
+- A arquitetura do projeto é agnóstica a tecnologia. Foi utilizado o BLoC, porém a migração par MobX, GetX, etc., não altera a arquitetura;utilizada.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- O projeto baseia-se me injeção de dependências e abstrações;
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- O arquivo .env possui as referências para o projeto de acordo com o ambiente (em um rojeto real este arquivo NÃO DEVE se publico).
+
+## Como utilizar
+
+- flutter pub get
+
+- flutter run
+
+## A ser finalizado
+
+- Testes de integração;
+- Sistema de login (utilizando firebase);
+- Migração para Flutter Modular;
+- Utilizar outras tecnologias como MobX, GetX;
+- Melhorar o design das telas de splash,

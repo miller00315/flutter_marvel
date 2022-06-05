@@ -7,6 +7,7 @@ import 'package:marvel/config/app_spacing.dart';
 import 'package:marvel/features/domain/entities/character.dart';
 import 'package:marvel/features/presentation/pages/details_page/widgets/character_description.dart';
 import 'package:marvel/features/presentation/pages/details_page/widgets/comics_list.dart';
+import 'package:marvel/theme/app_colors.dart';
 
 class DetailsPage extends StatelessWidget {
   static const routeName = '/details';
@@ -21,6 +22,7 @@ class DetailsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: AppColors.black,
         title: Text(
           character.name,
           style: const TextStyle(
